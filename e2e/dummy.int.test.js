@@ -24,7 +24,7 @@ describe('Bare-bones test with puppeteer', () => {
     browser.close()
   })
 
-  it('should load google webpage', async () => {
-    await page.goto('http://google.com/')
+  it('should load the app', async () => {
+    await page.goto('http://localhost:3000/')
   })
 })
