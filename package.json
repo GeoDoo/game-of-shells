@@ -20,6 +20,11 @@
   },
   "homepage": "https://github.com/GeoDoo/game-of-shells#readme",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "puppeteer": "^1.8.0",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"
   },
