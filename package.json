@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:unit": "jest unit",
+    "test:int": "jest int",
     "start": "webpack --mode development",
     "build": "webpack --mode production"
   },
@@ -24,6 +25,7 @@
     "babel-loader": "^8.0.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "jest": "^23.6.0",
     "puppeteer": "^1.8.0",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"
