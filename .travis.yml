@@ -6,6 +6,5 @@ cache:
     - node_modules
 script:
   - yarn test:unit
-  - yarn start
   - yarn test:int
   - yarn build

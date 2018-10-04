@@ -9,13 +9,7 @@ describe('Bare-bones test with puppeteer', () => {
     originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 9000000
 
-    browser = await puppeteer.launch({
-      headless: false,
-      slowMo: 500,
-      args: ['--start-fullscreen'],
-      defaultViewport: null
-    })
-
+    browser = await puppeteer.launch()
     page = await browser.newPage()
   })
 
