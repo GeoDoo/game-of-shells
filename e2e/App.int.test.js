@@ -11,7 +11,7 @@ describe('Bare-bones test with puppeteer', () => {
 
     browser = await puppeteer.launch({
       headless: false,
-      slowMo: 100,
+      slowMo: 500,
       args: ['--start-fullscreen'],
       defaultViewport: null
     })
