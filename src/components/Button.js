@@ -2,8 +2,7 @@ import React from 'react'
 
 const Button = ({
   text,
-  onClick,
-  disabled
-}) => <button onClick={onClick} disabled={disabled}>{text}</button>
+  onClick
+}) => <button onClick={onClick}>{text}</button>
 
 export default Button
