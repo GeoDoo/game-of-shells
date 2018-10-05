@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:unit": "jest unit",
-    "test:int": "jest int",
+    "test:unit": "jest unit --verbose",
+    "test:int": "jest int --verbose",
     "start": "webpack-dev-server --mode development --open --hot --port 3000",
     "build": "webpack --mode production"
   },
@@ -31,6 +31,7 @@
     "enzyme-adapter-react-16": "^1.5.0",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^23.6.0",
+    "jest-puppeteer": "^3.4.0",
     "puppeteer": "^1.8.0",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
@@ -41,6 +42,7 @@
     "react-dom": "^16.5.2"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>src/setupTests.js"
+    "setupTestFrameworkScriptFile": "<rootDir>src/setupTests.js",
+    "preset": "jest-puppeteer"
   }
 }
