@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { stringButNotEmptyString } from '../helpers/customPropTypes'
 
 const Shell = ({
   imagePath,
@@ -7,7 +7,7 @@ const Shell = ({
 }) => <img testkey="shell" src={imagePath} onClick={onClick} />
 
 Shell.propTypes = {
-  imagePath: PropTypes.string.isRequired
+  imagePath: (props, propName, componentName) => stringButNotEmptyString(props, propName, componentName)
 }
 
 export default Shell

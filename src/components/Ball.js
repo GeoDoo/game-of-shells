@@ -1,12 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { stringButNotEmptyString } from '../helpers/customPropTypes'
 
 const Ball = ({
   imagePath
 }) => <img testkey="ball" src={imagePath} />
 
 Ball.propTypes = {
-  imagePath: PropTypes.string.isRequired
+  imagePath: (props, propName, componentName) => stringButNotEmptyString(props, propName, componentName)
 }
 
 export default Ball

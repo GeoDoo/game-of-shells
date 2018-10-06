@@ -25,4 +25,9 @@ describe('Button', () => {
     button.simulate('click')
     expect(onClickSpy).toHaveBeenCalled()
   })
+
+  it('should be able to disable itself', () => {
+    button.setProps({ disabled: true })
+    expect(onClickSpy).not.toBeCalled
+  })
 })

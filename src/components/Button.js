@@ -2,7 +2,8 @@ import React from 'react'
 
 const Button = ({
   text,
-  onClick
-}) => <button testkey="start-game" onClick={onClick}>{text}</button>
+  onClick,
+  disabled
+}) => <button testkey="start-game" onClick={onClick} disabled={disabled}>{text}</button>
 
 export default Button
