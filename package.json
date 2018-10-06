@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test:unit": "jest unit --verbose",
-    "test:unit:watch": "test:unit --watch",
+    "test:unit:watch": "yarn test:unit --watch",
     "test:int": "jest int --verbose --detectOpenHandles",
     "start": "webpack-dev-server --mode development --open --hot --port 3000",
     "build": "webpack --mode production"
