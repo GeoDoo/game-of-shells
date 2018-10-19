@@ -1,5 +1,5 @@
 import React from 'react'
 
-const Table = () => <div testkey="table" />
+const Table = ({ testkey }) => <div testkey={testkey} />
 
 export default Table

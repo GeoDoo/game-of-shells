@@ -1,4 +1,4 @@
-class GameOfShellsTest {
+class MinimumRequirementsTest {
   constructor(page) {
     this.page = page
   }
@@ -24,15 +24,15 @@ class GameOfShellsTest {
   }
 
   async hasThreeShells() {
-    let numOfShells
     try {
-      await this.page.waitForSelector('[testkey=shell]')
-      numOfShells = await this.page.$$eval('[testkey=shell]', shells => shells.length)
+      await this.page.waitForSelector('[testkey=shell-1]')
+      await this.page.waitForSelector('[testkey=shell-2]')
+      await this.page.waitForSelector('[testkey=shell-3]')
     } catch(e) {
       console.log(e)
       return false
     }
-    return numOfShells === 3
+    return true
   }
 
   async hasABall() {
@@ -54,33 +54,16 @@ class GameOfShellsTest {
     }
     return true
   }
-
-  async start() {
-    await this.page.click('[testkey=start-game]')
-  }
-
-  async shuffle() {
-    let disabled
-    disabled = await this.page.$eval('[testkey=start-game]', element => element.disabled)
-    await expect(disabled).toBe(true)  
-    await this.page.waitFor(15000)
-    disabled = await this.page.$eval('[testkey=start-game]', element => element.disabled)
-    await expect(disabled).toBe(false)
-  }
-
-  async playerChoosesAShell() {
-    await this.page.click('[testkey=shell]')
-  }
 }
 
-describe('Game of shells minimum functionality', () => {
+describe('Game of shells requirements', () => {
   let game
   beforeAll(async () => {
-    game = new GameOfShellsTest(page)
+    game = new MinimumRequirementsTest(page)
     await page.goto('http://localhost:3000', {"waitUntil" : "networkidle0"})
   })
 
-  describe('As a user I would like to be able to play the game in a very basic way', () => {
+  describe('As a user I would like to be able to have all the necessary components to play the game', () => {
     it('I will need a board', async () => {
       expect(await game.hasABoard()).toBe(true)
     })
@@ -89,7 +72,7 @@ describe('Game of shells minimum functionality', () => {
       expect(await game.hasATable()).toBe(true)
     })
 
-    it('I will need theee shells', async () => {
+    it('I will need three shells', async () => {
       expect(await game.hasThreeShells()).toBe(true)
     }, 20000)
 
@@ -100,11 +83,5 @@ describe('Game of shells minimum functionality', () => {
     it('and I will need some way to start the game', async () => {
       expect(await game.hasAWayToStart()).toBe(true)
     })
-  
-    it('So, I start the game and watch the shuffling and finally I make my choice of shell', async () => {
-      await game.start()
-      await game.shuffle()
-      await game.playerChoosesAShell()
-    }, 20000)
   })
 })

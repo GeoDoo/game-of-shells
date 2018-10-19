@@ -7,6 +7,7 @@
     "test:unit": "jest unit --verbose --env=jsdom",
     "test:unit:watch": "yarn test:unit --watch",
     "test:int": "jest int --verbose --detectOpenHandles",
+    "test:int:watch": "jest int --verbose --detectOpenHandles --watch",
     "start": "webpack-dev-server --mode development --open --hot --port 3000",
     "build": "webpack --mode production"
   },
