@@ -10,7 +10,7 @@ describe('GameOfShells', () => {
   }) 
 
   it('should display a message to the user that the game started after he starts the game', () => {
-    gameOfShells.find('[testkey="start-game"]').at(1).simulate('click')
+    gameOfShells.find('[testkey="start-game"]').last().simulate('click')
     
     expect(gameOfShells.state().message).toBe(settings.messages.start)
   })
