@@ -1,6 +1,6 @@
 {
-  "duration": 10000,
+  "duration": 1000,
   "messages": {
-    "start": "game started..."
+    "start": "shuffling..."
   }
 }

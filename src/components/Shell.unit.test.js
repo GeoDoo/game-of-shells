@@ -1,6 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import Shell from './Shell'
+import Ball from './Ball'
 
 describe('Shell', () => {
   let imagePath
@@ -18,11 +19,18 @@ describe('Shell', () => {
   })
 
   it('should accept an image', () => {
-    expect(shell.props().src).toBe(imagePath)
+    expect(shell.find('img').first().props().src).toBe(imagePath)
   })
 
   it('should handle clicks', () => {
-    shell.simulate('click')
+    shell.find('img').first().simulate('click')
     expect(onClickSpy).toHaveBeenCalled()
+  })
+  
+  it('should accept a ball', () => {
+    shell.setProps({
+      ball: <Ball imagePath={imagePath} />
+    })
+    expect(shell.find('img').last().length).toBe(1)
   })
 })

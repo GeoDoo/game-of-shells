@@ -23,11 +23,19 @@ h1 {
 #shells-container {
   width: 720px;
   margin: auto;
+  display: flex;
+}
+
+.shell {
   position: relative;
 }
 
 #ball {
   position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -40px;
+  margin-top: -40px;
 }
 
 #notifications {
