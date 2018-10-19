@@ -6,19 +6,6 @@ class MinimumGamePlayTest {
   async start() {
     await this.page.click('[testkey=start-game]')
   }
-
-  // async shuffle() {
-  //   let disabled
-  //   disabled = await this.page.$eval('[testkey=start-game]', element => element.disabled)
-  //   await expect(disabled).toBe(true)  
-  //   await this.page.waitFor(15000)
-  //   disabled = await this.page.$eval('[testkey=start-game]', element => element.disabled)
-  //   await expect(disabled).toBe(false)
-  // }
-
-  // async playerChoosesAShell() {
-  //   await this.page.click('[testkey=shell-1]')
-  // }
 }
 
 describe('Start of the game', () => {
