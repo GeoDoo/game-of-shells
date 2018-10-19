@@ -25,6 +25,7 @@ class GameOfShells extends React.Component {
     return (
       <div className="container">
         <div id="board">
+          <h1 testkey="game-title">Game of Shells</h1>
           <Button
             testkey="start-game"
             text="Start game"

@@ -8,7 +8,7 @@ class MinimumGamePlayTest {
   }
 }
 
-describe('Start of the game', () => {
+describe('Game start', () => {
   let game
   beforeAll(async () => {
     game = new MinimumGamePlayTest(page)
