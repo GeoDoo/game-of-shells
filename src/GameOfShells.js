@@ -1,5 +1,4 @@
 import React from 'react'
-import Board from './components/Board'
 import Button from './components/Button'
 import Shell from './components/Shell'
 import Ball from './components/Ball'
@@ -25,14 +24,14 @@ class GameOfShells extends React.Component {
     const { isUserInteractionDisabled } = this.state
     return (
       <div className="container">
-        <Board>
+        <div id="board">
           <Button
             testkey="start-game"
             text="Start game"
             onClick={this.shuffle}
             disabled={isUserInteractionDisabled}
           />
-        </Board>
+        </div>
         <div id="table">
           <Shell
             testkey="shell-1"
