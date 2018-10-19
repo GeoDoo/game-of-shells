@@ -31,5 +31,6 @@ h1 {
 }
 
 #notifications {
+  padding-top: 36px;
   font-style: italic;
 }
