@@ -4,7 +4,7 @@ import { stringButNotEmptyString } from '../helpers/customPropTypes'
 const Shell = ({
   imagePath,
   onClick
-}) => <img src={imagePath} onClick={onClick} alt="Shell" width={250} />
+}) => <img src={imagePath} onClick={onClick} alt="Shell" width={240} />
 
 Shell.propTypes = {
   imagePath: (props, propName, componentName) => stringButNotEmptyString(props, propName, componentName)
