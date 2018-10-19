@@ -9,7 +9,8 @@ describe('GameOfShells', () => {
   }) 
 
   it('should prevent user interaction during the shuffle of shells', done => {
-    gameOfShells.find('[testkey="start-game"]').simulate('click')
+    gameOfShells.find('[testkey="start-game"]').at(1).simulate('click')
+    
     expect(gameOfShells.state().isUserInteractionDisabled).toBe(true)
     setTimeout(() => {
       expect(gameOfShells.state().isUserInteractionDisabled).toBe(false)
