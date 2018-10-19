@@ -17,4 +17,15 @@ h1 {
 #table {
   height: 80vh;
   background-color: #af8b55;
+  display: flex;
+}
+
+#shells-container {
+  width: 720px;
+  margin: auto;
+  position: relative;
+}
+
+#ball {
+  position: absolute;
 }
