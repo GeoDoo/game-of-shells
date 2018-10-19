@@ -17,4 +17,5 @@ install:
 script:
   - yarn test:unit
   - yarn test:int
+  - yarn test:e2e
   - yarn build

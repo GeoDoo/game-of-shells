@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:unit": "jest unit --env=jsdom",
+    "test:unit": "jest unit",
     "test:unit:watch": "yarn test:unit --watch",
-    "test:int": "jest int --detectOpenHandles",
+    "test:int": "jest int --env=jsdom",
     "test:int:watch": "yarn test:int --watch",
+    "test:e2e": "jest e2e",
+    "test:e2e:watch": "jest e2e --watch",
     "start": "webpack-dev-server --mode development --open --hot --port 3000",
     "build": "webpack --mode production"
   },
