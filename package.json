@@ -30,6 +30,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
+    "css-loader": "^1.0.0",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
     "html-webpack-plugin": "^3.2.0",
@@ -37,6 +38,7 @@
     "jest-puppeteer": "^3.4.0",
     "prop-types": "^15.6.2",
     "puppeteer": "^1.8.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9"
@@ -47,6 +49,9 @@
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>src/setupTests.js",
-    "preset": "jest-puppeteer"
+    "preset": "jest-puppeteer",
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
   }
 }

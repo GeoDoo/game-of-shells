@@ -4,6 +4,7 @@ import Button from './components/Button'
 import Table from './components/Table'
 import Shell from './components/Shell'
 import Ball from './components/Ball'
+import './assets/css/app.css'
 
 class GameOfShells extends React.Component {
   state = {
