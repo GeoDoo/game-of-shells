@@ -1,3 +1,5 @@
+import settings from '../src/config/settings.json'
+
 class MinimumGamePlayTest {
   constructor(page) {
     this.page = page
@@ -5,6 +7,11 @@ class MinimumGamePlayTest {
 
   async start() {
     await this.page.click('[testkey=start-game]')
+  }
+
+  async getNotificationMessage() {
+    await this.page.waitForSelector('[testkey=notifications]')
+    return await page.$eval('[testkey=notifications]', e => e.innerHTML)
   }
 }
 
@@ -17,5 +24,9 @@ describe('Game start', () => {
 
   it('As a user I would like to be able to start the game', async () => {
     await game.start()
+  })
+
+  it('As a user I would like to be able to be notified that the game started', async () => {
+    expect(await game.getNotificationMessage()).toBe(settings.messages.start)
   })
 })

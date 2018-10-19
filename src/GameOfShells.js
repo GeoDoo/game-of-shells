@@ -2,26 +2,30 @@ import React from 'react'
 import Button from './components/Button'
 import Shell from './components/Shell'
 import Ball from './components/Ball'
+import settings from './config/settings.json'
 import './assets/css/app.css'
 
 class GameOfShells extends React.Component {
   state = {
-    isUserInteractionDisabled: false
+    isUserInteractionDisabled: false,
+    message: '',
   }
 
   shuffle = () => {
     this.setState({
-      isUserInteractionDisabled: true
+      isUserInteractionDisabled: true,
+      message: settings.messages.start,
     })
+
     setTimeout(() => {
       this.setState({
-        isUserInteractionDisabled: false
+        isUserInteractionDisabled: false,
       })
-    }, 15000)
+    }, settings.duration)
   }
 
   render() {
-    const { isUserInteractionDisabled } = this.state
+    const { isUserInteractionDisabled, message } = this.state
     return (
       <div className="container">
         <div id="board">
@@ -32,6 +36,7 @@ class GameOfShells extends React.Component {
             onClick={this.shuffle}
             disabled={isUserInteractionDisabled}
           />
+          <div testkey="notifications" id="notifications">{message}</div>
         </div>
         <div id="table">
           <div id="shells-container">

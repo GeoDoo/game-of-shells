@@ -29,3 +29,7 @@ h1 {
 #ball {
   position: absolute;
 }
+
+#notifications {
+  font-style: italic;
+}
