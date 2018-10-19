@@ -3,12 +3,18 @@ body {
   padding: 0;
 }
 
+h1 {
+  margin: 0;
+  padding: 24px 0;
+}
+
 #board {
-  background-color: #eed70b;
   height: 20vh;
+  text-align: center;
+  background-color: #eed70b;
 }
 
 #table {
-  background-color: #af8b55;
   height: 80vh;
+  background-color: #af8b55;
 }
