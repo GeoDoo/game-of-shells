@@ -2,9 +2,8 @@ import React from 'react'
 import { stringButNotEmptyString } from '../helpers/customPropTypes'
 
 const Ball = ({
-  testkey,
   imagePath
-}) => <img testkey={testkey} src={imagePath} alt="Ball" width={80} />
+}) => <img src={imagePath} alt="Ball" width={80} />
 
 Ball.propTypes = {
   imagePath: (props, propName, componentName) => stringButNotEmptyString(props, propName, componentName)
