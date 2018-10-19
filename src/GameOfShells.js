@@ -31,29 +31,29 @@ class GameOfShells extends React.Component {
     return (
       <div className="container">
         <div id="board">
-          <h1 testkey="game-title">Game of Shells</h1>
+          <h1 test="game-title">Game of Shells</h1>
           <Button
-            testkey="start-game"
+            test="start-game"
             text="Start game"
             onClick={this.shuffle}
             disabled={isUserInteractionDisabled}
           />
-          <div testkey="notifications" id="notifications">{message}</div>
+          <div test="notifications" id="notifications">{message}</div>
         </div>
         <div id="table">
           <div id="shells-container">
             <Shell
-              testkey="shell-1"
+              test="shell-1"
               imagePath='https://pics.clipartpng.com/midle/Sea_Shell_PNG_Clip_Art-1449.png'
               onClick={() => {}}
             />
             {isBallPlaced 
               ? 
               <Shell
-                testkey="shell-2"
+                test="shell-2"
                 ball={
                   <Ball
-                    testkey="ball"
+                    test="ball"
                     imagePath='https://gallery.yopriceville.com/var/albums/Free-Clipart-Pictures/Jewelry-and-Diamonds-PNG/Transparent_Pearl_Clipart.png?m=1434276670'
                   />
                 }
@@ -62,13 +62,13 @@ class GameOfShells extends React.Component {
               />
             : 
               <Shell
-                testkey="shell-2"
+                test="shell-2"
                 imagePath='https://pics.clipartpng.com/midle/Sea_Shell_PNG_Clip_Art-1449.png'
                 onClick={() => {}}
               />
             }
             <Shell
-              testkey="shell-3"
+              test="shell-3"
               imagePath='https://pics.clipartpng.com/midle/Sea_Shell_PNG_Clip_Art-1449.png'
               onClick={() => {}}
             />

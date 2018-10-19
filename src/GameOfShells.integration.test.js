@@ -10,20 +10,20 @@ describe('GameOfShells', () => {
   }) 
 
   it('should display a message to the user that the game started after he starts the game', () => {
-    gameOfShells.find('[testkey="start-game"]').last().simulate('click')
+    gameOfShells.find('[test="start-game"]').last().simulate('click')
 
     expect(gameOfShells.state().message).toBe(settings.messages.start)
   })
 
   it('should hide the ball inside a shell', () => {
-    expect(gameOfShells.find('[testkey="ball"]').last().length).toBe(0)
-    gameOfShells.find('[testkey="start-game"]').last().simulate('click')
+    expect(gameOfShells.find('[test="ball"]').last().length).toBe(0)
+    gameOfShells.find('[test="start-game"]').last().simulate('click')
     
-    expect(gameOfShells.find('[testkey="ball"]').last().length).toBe(1)
+    expect(gameOfShells.find('[test="ball"]').last().length).toBe(1)
   })
 
   it('should prevent user interaction during the shuffle of shells', done => {
-    gameOfShells.find('[testkey="start-game"]').last().simulate('click')
+    gameOfShells.find('[test="start-game"]').last().simulate('click')
     
     expect(gameOfShells.state().isUserInteractionDisabled).toBe(true)
     setTimeout(() => {

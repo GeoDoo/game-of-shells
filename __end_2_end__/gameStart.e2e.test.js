@@ -6,22 +6,22 @@ class MinimumGamePlayTest {
   }
 
   async start() {
-    await this.page.click('[testkey=start-game]')
+    await this.page.click('[test=start-game]')
   }
 
   async getNotificationMessage() {
-    await this.page.waitForSelector('[testkey=notifications]')
-    return await page.$eval('[testkey=notifications]', e => e.innerHTML)
+    await this.page.waitForSelector('[test=notifications]')
+    return await page.$eval('[test=notifications]', e => e.innerHTML)
   }
 
   async shouldShellContainBall() {
-    await this.page.waitForSelector('[testkey=shell-2]')
-    const shellContents = await page.$eval('[testkey=shell-2]', e => e.innerHTML)
+    await this.page.waitForSelector('[test=shell-2]')
+    const shellContents = await page.$eval('[test=shell-2]', e => e.innerHTML)
     return shellContents.includes('ball')
   }
 
   async hideBallInAShell() {
-    await this.page.waitForSelector('[testkey=ball]')
+    await this.page.waitForSelector('[test=ball]')
   }
 
   async shuffleShells() {
