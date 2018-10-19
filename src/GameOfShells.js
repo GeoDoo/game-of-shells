@@ -1,7 +1,6 @@
 import React from 'react'
 import Board from './components/Board'
 import Button from './components/Button'
-import Table from './components/Table'
 import Shell from './components/Shell'
 import Ball from './components/Ball'
 import './assets/css/app.css'
@@ -26,7 +25,7 @@ class GameOfShells extends React.Component {
     const { isUserInteractionDisabled } = this.state
     return (
       <div className="container">
-        <Board testkey="board">
+        <Board>
           <Button
             testkey="start-game"
             text="Start game"
@@ -34,8 +33,7 @@ class GameOfShells extends React.Component {
             disabled={isUserInteractionDisabled}
           />
         </Board>
-        <div className="game-area">
-          <Table testkey="table" />
+        <div id="table">
           <Shell
             testkey="shell-1"
             imagePath='https://pics.clipartpng.com/midle/Sea_Shell_PNG_Clip_Art-1449.png'

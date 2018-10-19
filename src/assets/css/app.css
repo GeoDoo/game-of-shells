@@ -1,9 +1,14 @@
-div#table {
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#board {
+  background-color: #eed70b;
+  height: 20vh;
+}
+
+#table {
   background-color: #af8b55;
-  width: 100vw;
   height: 80vh;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
 }
