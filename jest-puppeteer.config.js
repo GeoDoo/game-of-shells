@@ -1,8 +1,8 @@
-const isNotHeadlessOnTests = process.env.NODE_ENV !== 'test'
+const shouldBeFalseForTests = process.env.NODE_ENV !== 'test'
 
 module.exports = {
   launch: {
-    headless: isNotHeadlessOnTests,
+    headless: !shouldBeFalseForTests,
     slowMo: 500
   }
 }
