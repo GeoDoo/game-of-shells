@@ -1,7 +1,6 @@
 import React from 'react'
 import Button from './components/Button'
 import Shell from './components/Shell'
-import Ball from './components/Ball'
 import settings from './config/settings.json'
 import './assets/css/app.css'
 
@@ -51,12 +50,7 @@ class GameOfShells extends React.Component {
               ? 
               <Shell
                 test="shell-2"
-                ball={
-                  <Ball
-                    test="ball"
-                    imagePath='https://gallery.yopriceville.com/var/albums/Free-Clipart-Pictures/Jewelry-and-Diamonds-PNG/Transparent_Pearl_Clipart.png?m=1434276670'
-                  />
-                }
+                hasBall
                 imagePath='https://pics.clipartpng.com/midle/Sea_Shell_PNG_Clip_Art-1449.png'
                 onClick={() => {}}
               />

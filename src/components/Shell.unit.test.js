@@ -1,7 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import Shell from './Shell'
-import Ball from './Ball'
 
 describe('Shell', () => {
   let imagePath
@@ -29,7 +28,7 @@ describe('Shell', () => {
   
   it('should accept a ball', () => {
     shell.setProps({
-      ball: <Ball imagePath={imagePath} />
+      hasBall: true
     })
     expect(shell.find('img').last().length).toBe(1)
   })
