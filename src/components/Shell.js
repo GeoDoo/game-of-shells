@@ -15,7 +15,7 @@ const Shell = ({
         test='ball' 
         id="ball" 
         className="animated slideInDown" 
-        src='https://gallery.yopriceville.com/var/albums/Free-Clipart-Pictures/Jewelry-and-Diamonds-PNG/Transparent_Pearl_Clipart.png?m=1434276670'
+        src={ballImg}
         alt="Ball" 
         width={80} 
       />

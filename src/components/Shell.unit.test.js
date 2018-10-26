@@ -30,6 +30,6 @@ describe('Shell', () => {
     shell.setProps({
       hasBall: true
     })
-    expect(shell.find('img').last().length).toBe(1)
+    expect(shell.find('[test="ball"]').length).toBe(1)
   })
 })
