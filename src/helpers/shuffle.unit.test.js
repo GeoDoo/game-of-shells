@@ -1,14 +1,21 @@
 import shuffle from './shuffle'
 
 describe('shuffle algorithm', () => {
-  it('should shuffle the array every time', () =>{
-    const numbers = [1, 2, 3]
+  const bigEnoughNumberOfIterations = 1000
 
+  it('should shuffle every time', () => {
+    let numbers = [1, 2, 3]
+    for (let i = 0; i < bigEnoughNumberOfIterations; i++) {
+      const shuffled = shuffle(numbers)
+      expect(shuffled).not.toEqual(numbers)
+      numbers = shuffled
+    }
+  })
+
+  it('should always swap only two items', () => {
+    const numbers = [1, 2, 3]
     const shuffledOnce = shuffle(numbers)
-    expect(shuffledOnce).not.toEqual(numbers)
-    const shuffledTwice = shuffle(shuffledOnce)
-    expect(shuffledTwice).not.toEqual(shuffledOnce)
-    const shuffledThrice = shuffle(shuffledTwice)
-    expect(shuffledThrice).not.toEqual(shuffledTwice)
+    const unmoved = numbers.filter((item, index) => shuffledOnce[index] === item)
+    expect(unmoved.length).toBe(1)
   })
 })
