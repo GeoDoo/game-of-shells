@@ -30,10 +30,15 @@ h1 {
   position: relative;
 }
 
+.shell-image {
+  position: relative;
+  z-index: 1;
+}
+
 #ball {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: -160px;
   margin-left: -40px;
   margin-top: -40px;
 }
@@ -41,4 +46,42 @@ h1 {
 #notifications {
   padding-top: 36px;
   font-style: italic;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.slideInDown {
+  -webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
+}
+
+@-webkit-keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 240px, 0);
+    transform: translate3d(0, 240px, 0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 240px, 0);
+    transform: translate3d(0, 240px, 0);
+  }
 }

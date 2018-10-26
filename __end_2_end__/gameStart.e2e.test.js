@@ -40,7 +40,7 @@ describe('Game play', () => {
     await game.start()
   })
 
-  it('As a user I would like to be able to be notified that the game started', async () => {
+  it('As a user I would like to be notified that the game started', async () => {
     expect(await game.getNotificationMessage()).toBe(settings.messages.start)
   })
 

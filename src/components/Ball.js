@@ -4,7 +4,7 @@ import { stringButNotEmptyString } from '../helpers/customPropTypes'
 const Ball = ({
   test,
   imagePath
-}) => <img test={test} id="ball" src={imagePath} alt="Ball" width={80} />
+}) => <img test={test} id="ball" className="animated slideInDown" src={imagePath} alt="Ball" width={80} />
 
 Ball.propTypes = {
   imagePath: (props, propName, componentName) => stringButNotEmptyString(props, propName, componentName)

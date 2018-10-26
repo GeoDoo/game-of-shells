@@ -6,7 +6,7 @@ const Shell = ({
   ball,
   imagePath,
   onClick
-}) => <div test={test} className="shell"><img src={imagePath} onClick={onClick} alt="Shell" width={240} />{ball}</div>
+}) => <div test={test} className="shell"><img className="shell-image" src={imagePath} onClick={onClick} alt="Shell" width={240} />{ball}</div>
 
 Shell.propTypes = {
   imagePath: (props, propName, componentName) => stringButNotEmptyString(props, propName, componentName)
