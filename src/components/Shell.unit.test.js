@@ -3,22 +3,19 @@ import { shallow } from 'enzyme'
 import Shell from './Shell'
 
 describe('Shell', () => {
-  let imagePath
   let onClickSpy
   let shell
   beforeAll(() => {
-    imagePath = 'some/path/to/image.png'
     onClickSpy = jest.fn()
     shell = shallow(
       <Shell
-        imagePath={imagePath}
         onClick={onClickSpy}
       />
     )
   })
 
   it('should accept an image', () => {
-    expect(shell.find('img').first().props().src).toBe(imagePath)
+    expect(shell.find('img').first().props().src).not.toBe('')
   })
 
   it('should handle clicks', () => {
