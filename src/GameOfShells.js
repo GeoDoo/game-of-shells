@@ -36,7 +36,6 @@ class GameOfShells extends React.Component {
               key={shell.id}
               test={shell.id}
               hasBall
-              imagePath='https://pics.clipartpng.com/midle/Sea_Shell_PNG_Clip_Art-1449.png'
               onClick={() => {}}
             />
           ) 
@@ -45,7 +44,6 @@ class GameOfShells extends React.Component {
             <Shell
               key={shell.id}
               test={shell.id}
-              imagePath='https://pics.clipartpng.com/midle/Sea_Shell_PNG_Clip_Art-1449.png'
               onClick={() => {}}
             />
           )
