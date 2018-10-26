@@ -2,6 +2,7 @@ import React from 'react'
 import Button from './components/Button'
 import Shell from './components/Shell'
 import settings from './config/settings.json'
+import { shells } from './config/db.json'
 import './assets/css/app.css'
 
 class GameOfShells extends React.Component {
@@ -25,8 +26,36 @@ class GameOfShells extends React.Component {
     }, settings.duration)
   }
 
+  renderShells() {
+    const { isBallPlaced } = this.state
+    return shells.map(
+      shell => {
+        if (shell.id === 'shell-2' && isBallPlaced) {
+          return (
+            <Shell
+              key={shell.id}
+              test={shell.id}
+              hasBall
+              imagePath='https://pics.clipartpng.com/midle/Sea_Shell_PNG_Clip_Art-1449.png'
+              onClick={() => {}}
+            />
+          ) 
+        } else {
+          return (
+            <Shell
+              key={shell.id}
+              test={shell.id}
+              imagePath='https://pics.clipartpng.com/midle/Sea_Shell_PNG_Clip_Art-1449.png'
+              onClick={() => {}}
+            />
+          )
+        }
+      }
+    )
+  }
+
   render() {
-    const { isUserInteractionDisabled, message, isBallPlaced } = this.state
+    const { isUserInteractionDisabled, message } = this.state
     return (
       <div className="container">
         <div id="board">
@@ -41,31 +70,7 @@ class GameOfShells extends React.Component {
         </div>
         <div id="table">
           <div id="shells-container">
-            <Shell
-              test="shell-1"
-              imagePath='https://pics.clipartpng.com/midle/Sea_Shell_PNG_Clip_Art-1449.png'
-              onClick={() => {}}
-            />
-            {isBallPlaced 
-              ? 
-              <Shell
-                test="shell-2"
-                hasBall
-                imagePath='https://pics.clipartpng.com/midle/Sea_Shell_PNG_Clip_Art-1449.png'
-                onClick={() => {}}
-              />
-            : 
-              <Shell
-                test="shell-2"
-                imagePath='https://pics.clipartpng.com/midle/Sea_Shell_PNG_Clip_Art-1449.png'
-                onClick={() => {}}
-              />
-            }
-            <Shell
-              test="shell-3"
-              imagePath='https://pics.clipartpng.com/midle/Sea_Shell_PNG_Clip_Art-1449.png'
-              onClick={() => {}}
-            />
+            {this.renderShells()}
           </div>
         </div>
       </div>
