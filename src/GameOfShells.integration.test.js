@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import settings from './config/settings.json'
+import { messages, duration } from './config/settings.json'
 import GameOfShells from './GameOfShells'
 
 describe('GameOfShells', () => {
@@ -12,7 +12,7 @@ describe('GameOfShells', () => {
   it('should display a message to the user that the game started after he starts the game', () => {
     gameOfShells.find('[test="start-game"]').last().simulate('click')
 
-    expect(gameOfShells.state().message).toBe(settings.messages.start)
+    expect(gameOfShells.state().message).toBe(messages.start)
   })
 
   it('should hide the ball inside a shell', () => {
@@ -29,6 +29,6 @@ describe('GameOfShells', () => {
     setTimeout(() => {
       expect(gameOfShells.state().isUserInteractionDisabled).toBe(false)
       done()
-    }, settings.duration)
-  }, settings.duration + 1000)
+    }, duration)
+  }, duration + 1000)
 })

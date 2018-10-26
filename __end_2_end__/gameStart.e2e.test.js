@@ -1,4 +1,4 @@
-import settings from '../src/config/settings.json'
+import { messages } from '../src/config/settings.json'
 
 class MinimumGamePlayTest {
   constructor(page) {
@@ -41,7 +41,7 @@ describe('Game play', () => {
   })
 
   it('As a user I would like to be notified that the game started', async () => {
-    expect(await game.getNotificationMessage()).toBe(settings.messages.start)
+    expect(await game.getNotificationMessage()).toBe(messages.start)
   })
 
   it('As a user I would like to see the shells shuffling', async () => {

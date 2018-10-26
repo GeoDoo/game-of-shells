@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from './components/Button'
 import Shell from './components/Shell'
-import settings from './config/settings.json'
+import { messages, duration } from './config/settings.json'
 import { shells } from './config/db.json'
 import './assets/css/app.css'
 
@@ -15,7 +15,7 @@ class GameOfShells extends React.Component {
   shuffle = () => {
     this.setState({
       isUserInteractionDisabled: true,
-      message: settings.messages.start,
+      message: messages.start,
       isBallPlaced: true,
     })
 
@@ -23,7 +23,7 @@ class GameOfShells extends React.Component {
       this.setState({
         isUserInteractionDisabled: false,
       })
-    }, settings.duration)
+    }, duration)
   }
 
   renderShells() {
