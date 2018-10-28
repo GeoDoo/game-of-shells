@@ -1,8 +1,7 @@
 import React from 'react'
 import Button from './components/Button'
-import Shell from './components/Shell'
+import ShellsContainer from './components/ShellsContainer'
 import { messages, duration } from './config/settings.json'
-import { shells } from './config/db.json'
 import './assets/css/app.css'
 
 class GameOfShells extends React.Component {
@@ -26,34 +25,8 @@ class GameOfShells extends React.Component {
     }, duration)
   }
 
-  renderShells() {
-    const { isBallPlaced } = this.state
-    return shells.map(
-      shell => {
-        if (shell.id === 'shell-2' && isBallPlaced) {
-          return (
-            <Shell
-              key={shell.id}
-              test={shell.id}
-              hasBall
-              onClick={() => {}}
-            />
-          ) 
-        } else {
-          return (
-            <Shell
-              key={shell.id}
-              test={shell.id}
-              onClick={() => {}}
-            />
-          )
-        }
-      }
-    )
-  }
-
   render() {
-    const { isUserInteractionDisabled, message } = this.state
+    const { isUserInteractionDisabled, message, isBallPlaced } = this.state
     return (
       <div className="container">
         <div id="board">
@@ -67,9 +40,7 @@ class GameOfShells extends React.Component {
           <div test="notifications" id="notifications">{message}</div>
         </div>
         <div id="table">
-          <div id="shells-container">
-            {this.renderShells()}
-          </div>
+          <ShellsContainer isBallPlaced={isBallPlaced} />
         </div>
       </div>
     )

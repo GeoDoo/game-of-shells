@@ -10,6 +10,7 @@ describe('Shell', () => {
     shell = shallow(
       <Shell
         onClick={onClickSpy}
+        position={{left: '0px'}}
       />
     )
   })
@@ -28,5 +29,9 @@ describe('Shell', () => {
       hasBall: true
     })
     expect(shell.find('[test="ball"]').length).toBe(1)
+  })
+
+  it('should be able to position itself relative to its container', () => {
+    expect(shell.props().style.left).toBe('0px')
   })
 })

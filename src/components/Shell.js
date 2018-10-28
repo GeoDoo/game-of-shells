@@ -5,9 +5,10 @@ import ballImg from '../assets/images/ball.png'
 const Shell = ({
   test,
   hasBall,
+  position,
   onClick
 }) => (
-  <div test={test} className="shell">
+  <div test={test} className="shell" style={position}>
     <img 
       className="shell-image"
       src={shellImg}
