@@ -19,6 +19,12 @@ describe('ShellsContainer', () => {
     shellsContainer.setProps({
       iterations: 1
     })
-    expect(shellsContainer.state().shellsOrder).not.toEqual(initialShellsOrder)
+    const newState = shellsContainer.state().shellsOrder
+    expect(newState).not.toEqual(initialShellsOrder)
+    shellsContainer.setProps({
+      iterations: 2
+    })
+    const anotherState = shellsContainer.state().shellsOrder
+    expect(anotherState).not.toEqual(newState)
   })
 })
