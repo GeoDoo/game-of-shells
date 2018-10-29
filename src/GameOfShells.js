@@ -9,6 +9,7 @@ class GameOfShells extends React.Component {
     isUserInteractionDisabled: false,
     message: '',
     isBallPlaced: false,
+    iterations: 0,
   }
 
   shuffle = () => {
@@ -18,6 +19,15 @@ class GameOfShells extends React.Component {
       isBallPlaced: true,
     })
 
+    for (let i = 0; i < 10; i++) {
+      setTimeout(() => {
+        const { iterations } = this.state
+        this.setState({
+          iterations: iterations + 1,
+        })
+      }, i * 1500)
+    }
+
     setTimeout(() => {
       this.setState({
         isUserInteractionDisabled: false,
@@ -26,7 +36,7 @@ class GameOfShells extends React.Component {
   }
 
   render() {
-    const { isUserInteractionDisabled, message, isBallPlaced } = this.state
+    const { isUserInteractionDisabled, message, isBallPlaced, iterations } = this.state
     return (
       <div className="container">
         <div id="board">
@@ -40,7 +50,7 @@ class GameOfShells extends React.Component {
           <div test="notifications" id="notifications">{message}</div>
         </div>
         <div id="table">
-          <ShellsContainer isBallPlaced={isBallPlaced} />
+          <ShellsContainer isBallPlaced={isBallPlaced} iterations={iterations} />
         </div>
       </div>
     )

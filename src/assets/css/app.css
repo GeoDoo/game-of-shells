@@ -23,11 +23,13 @@ h1 {
 #shells-container {
   width: 720px;
   margin: auto;
-  display: flex;
+  position: relative;
 }
 
 .shell {
-  position: relative;
+  position: absolute;
+  top: 0px;
+  transition: left .7s ease;
 }
 
 .shell-image {
