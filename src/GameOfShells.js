@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from './components/Button'
 import ShellsContainer from './components/ShellsContainer'
-import { messages, duration } from './config/settings.json'
+import { messages, durations } from './config/settings.json'
 import './assets/css/app.css'
 
 class GameOfShells extends React.Component {
@@ -32,7 +32,7 @@ class GameOfShells extends React.Component {
       this.setState({
         isUserInteractionDisabled: false,
       })
-    }, duration)
+    }, durations.shuffling)
   }
 
   render() {

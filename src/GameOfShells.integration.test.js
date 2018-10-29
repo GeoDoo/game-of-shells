@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import { messages, duration } from './config/settings.json'
+import { messages, durations } from './config/settings.json'
 import GameOfShells from './GameOfShells'
 
 describe('GameOfShells', () => {
@@ -29,6 +29,6 @@ describe('GameOfShells', () => {
     setTimeout(() => {
       expect(gameOfShells.state().isUserInteractionDisabled).toBe(false)
       done()
-    }, duration)
-  }, duration + 1000)
+    }, durations.shuffling)
+  }, durations.shuffling + 1000)
 })

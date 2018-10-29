@@ -1,5 +1,8 @@
 {
-  "duration": 15000,
+  "durations": {
+    "ballPlacing": 1500,
+    "shuffling": 15000
+  },
   "messages": {
     "start": "shuffling..."
   }
