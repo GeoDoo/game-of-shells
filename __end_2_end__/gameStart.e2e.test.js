@@ -1,4 +1,4 @@
-import { durations, messages } from '../src/config/settings.json'
+import settings from '../src/config/settings'
 
 class MinimumGamePlayTest {
   constructor(page) {
@@ -25,7 +25,7 @@ class MinimumGamePlayTest {
   }
 
   async shuffleShells() {
-    await this.page.waitFor(durations.shuffling)
+    await this.page.waitFor(settings.shufflingDuration)
   }
 }
 
@@ -41,12 +41,12 @@ describe('Game play', () => {
   })
 
   it('As a user I would like to be notified that the game started', async () => {
-    expect(await game.getNotificationMessage()).toBe(messages.start)
+    expect(await game.getNotificationMessage()).toBe(settings.startMessage)
   })
 
   it('As a user I would like to see the shells shuffling', async () => {
     await game.hideBallInAShell()
     expect(await game.shouldShellContainBall()).toBe(true)
     await game.shuffleShells()
-  }, durations.shuffling + 1000)
+  }, settings.extendTestDuration(settings.shufflingDuration))
 })

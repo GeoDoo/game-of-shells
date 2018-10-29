@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from './components/Button'
 import ShellsContainer from './components/ShellsContainer'
-import { messages, durations } from './config/settings.json'
+import settings from './config/settings'
 import './assets/css/app.css'
 
 class GameOfShells extends React.Component {
@@ -15,7 +15,7 @@ class GameOfShells extends React.Component {
   placeBall = () => {
     this.setState({
       isUserInteractionDisabled: true,
-      message: messages.start,
+      message: settings.startMessage,
       isBallPlaced: true,
     })
   }
@@ -27,7 +27,7 @@ class GameOfShells extends React.Component {
           this.setState({
             iterations: iterations + 1,
           })
-        }, i * 1500)
+        }, i * settings.iterationDuration)
       }  
   }
 
@@ -41,10 +41,10 @@ class GameOfShells extends React.Component {
     this.placeBall()
     setTimeout(() => {
       this.shuffle()
-    }, durations.ballPlacing)
+    }, settings.ballPlacingDuration)
     setTimeout(() => {
       this.enableUserInteraction()
-    }, durations.ballPlacing + durations.shuffling)
+    }, settings.shufflingAndBallPlacingDuration)
   }
 
   render() {
