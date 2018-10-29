@@ -29,6 +29,6 @@ describe('GameOfShells', () => {
     setTimeout(() => {
       expect(gameOfShells.state().isUserInteractionDisabled).toBe(false)
       done()
-    }, durations.shuffling)
-  }, durations.shuffling + 1000)
+    }, durations.ballPlacing + durations.shuffling)
+  }, durations.ballPlacing + durations.shuffling + 1000)
 })

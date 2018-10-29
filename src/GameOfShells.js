@@ -12,27 +12,39 @@ class GameOfShells extends React.Component {
     iterations: 0,
   }
 
-  shuffle = () => {
+  placeBall = () => {
     this.setState({
       isUserInteractionDisabled: true,
       message: messages.start,
       isBallPlaced: true,
     })
+  }
 
-    for (let i = 0; i < 10; i++) {
-      setTimeout(() => {
-        const { iterations } = this.state
-        this.setState({
-          iterations: iterations + 1,
-        })
-      }, i * 1500)
-    }
+  shuffle = () => {
+      for (let i = 0; i < 10; i++) {
+        setTimeout(() => {
+          const { iterations } = this.state
+          this.setState({
+            iterations: iterations + 1,
+          })
+        }, i * 1500)
+      }  
+  }
 
-    setTimeout(() => {
+  enableUserInteraction = () => {
       this.setState({
         isUserInteractionDisabled: false,
       })
-    }, durations.shuffling)
+  }
+
+  play = () => {
+    this.placeBall()
+    setTimeout(() => {
+      this.shuffle()
+    }, durations.ballPlacing)
+    setTimeout(() => {
+      this.enableUserInteraction()
+    }, durations.ballPlacing + durations.shuffling)
   }
 
   render() {
@@ -44,7 +56,7 @@ class GameOfShells extends React.Component {
           <Button
             test="start-game"
             text="Start game"
-            onClick={this.shuffle}
+            onClick={this.play}
             disabled={isUserInteractionDisabled}
           />
           <div test="notifications" id="notifications">{message}</div>
