@@ -39,9 +39,11 @@ class GameOfShells extends React.Component {
 
   play = () => {
     this.placeBall()
+
     setTimeout(() => {
       this.shuffle()
     }, settings.ballPlacingDuration)
+    
     setTimeout(() => {
       this.enableUserInteraction()
     }, settings.shufflingAndBallPlacingDuration)
