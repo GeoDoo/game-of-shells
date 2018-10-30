@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Shell from './Shell'
 import shuffle from '../helpers/shuffle'
-import { shells } from '../config/db.json'
+import { shells } from '../config/data.json'
 
 class ShellsContainer extends Component {
   state = {
