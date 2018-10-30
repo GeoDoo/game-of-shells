@@ -4,6 +4,9 @@ export default {
   extendTestDuration(duration) {
     return duration + 1000
   },
+  get numberOfIterations() {
+    return parseInt(durations.shuffling / durations.iteration, 10)
+  },
   get ballPlacingDuration() {
     return durations.ballPlacing
   },

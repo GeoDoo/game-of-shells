@@ -21,14 +21,14 @@ class GameOfShells extends React.Component {
   }
 
   shuffle = () => {
-      for (let i = 0; i < 10; i++) {
-        setTimeout(() => {
-          const { iterations } = this.state
-          this.setState({
-            iterations: iterations + 1,
-          })
-        }, i * settings.iterationDuration)
-      }  
+    for (let i = 0; i < settings.numberOfIterations; i++) {
+      setTimeout(() => {
+        const { iterations } = this.state
+        this.setState({
+          iterations: iterations + 1,
+        })
+      }, i * settings.iterationDuration)
+    }  
   }
 
   enableUserInteraction = () => {
