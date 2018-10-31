@@ -16,7 +16,7 @@ class GameOfShells extends React.Component {
   placeBall = () => {
     this.setState({
       isUserInteractionDisabled: true,
-      message: model.startMessage,
+      message: model.placingBallMessage,
       isBallPlaced: true,
     })
   }

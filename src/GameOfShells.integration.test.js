@@ -13,7 +13,7 @@ describe('GameOfShells', () => {
   it('should display a message to the user that the game started after he starts the game', () => {
     gameOfShells.find('[test="start-game"]').last().simulate('click')
 
-    expect(gameOfShells.state().message).toBe(model.startMessage)
+    expect(gameOfShells.state().message).toBe(model.placingBallMessage)
   })
 
   it('should hide the ball inside a shell', () => {

@@ -4,7 +4,7 @@ export default {
   get shells() {
     return shells
   },
-  get startMessage() {
-    return messages.start
+  get placingBallMessage() {
+    return messages.placingBall
   }
 }

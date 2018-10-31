@@ -42,7 +42,7 @@ describe('Game play', () => {
   })
 
   it('As a user I would like to be notified that the game started', async () => {
-    expect(await game.getNotificationMessage()).toBe(model.startMessage)
+    expect(await game.getNotificationMessage()).toBe(model.placingBallMessage)
   })
 
   it('As a user I would like to see the shells shuffling', async () => {

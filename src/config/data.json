@@ -11,6 +11,7 @@
     }
   ],
   "messages": {
-    "start": "shuffling..."
+    "placingBall": "placing ball...",
+    "shuffling": "shuffling..."
   }
 }
