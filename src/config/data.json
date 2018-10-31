@@ -12,6 +12,7 @@
   ],
   "messages": {
     "placingBall": "placing ball...",
-    "shuffling": "shuffling..."
+    "shuffling": "shuffling...",
+    "chooseShell": "Please choose a shell"
   }
 }

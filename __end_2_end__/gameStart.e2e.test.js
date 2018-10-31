@@ -25,6 +25,10 @@ class MinimumGamePlayTest {
     await this.page.waitForSelector('[test=ball]')
   }
 
+  async waitForShufflingToStart() {
+    await this.page.waitFor(settings.ballPlacingDuration)
+  }
+
   async shuffleShells() {
     await this.page.waitFor(settings.shufflingDuration)
   }
@@ -44,10 +48,16 @@ describe('Game play', () => {
   it('As a user I would like to be notified that the game started', async () => {
     expect(await game.getNotificationMessage()).toBe(model.placingBallMessage)
   })
-
+  
   it('As a user I would like to see the shells shuffling', async () => {
     await game.hideBallInAShell()
     expect(await game.shouldShellContainBall()).toBe(true)
+    await game.waitForShufflingToStart()
+    expect(await game.getNotificationMessage()).toBe(model.shufflingMessage)
     await game.shuffleShells()
-  }, settings.extendTestDuration(settings.shufflingDuration))
+  }, settings.extendTestDuration(settings.shufflingAndBallPlacingDuration))
+
+  it('As a user I would like to be notified that I can choose a shell', async () => {
+    expect(await game.getNotificationMessage()).toBe(model.chooseShellMessage)
+  })
 })

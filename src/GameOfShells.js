@@ -27,6 +27,7 @@ class GameOfShells extends React.Component {
         const { iterations } = this.state
         this.setState({
           iterations: iterations + 1,
+          message: model.shufflingMessage,
         })
       }, i * settings.iterationDuration)
     }  
@@ -35,6 +36,7 @@ class GameOfShells extends React.Component {
   enableUserInteraction = () => {
       this.setState({
         isUserInteractionDisabled: false,
+        message: model.chooseShellMessage,
       })
   }
 
