@@ -3,8 +3,5 @@
     "ballPlacing": 1500,
     "shuffling": 15000,
     "iteration": 1500
-  },
-  "messages": {
-    "start": "shuffling..."
   }
 }

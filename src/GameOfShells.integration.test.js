@@ -1,5 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
+import model from './config/model'
 import settings from './config/settings'
 import GameOfShells from './GameOfShells'
 
@@ -12,7 +13,7 @@ describe('GameOfShells', () => {
   it('should display a message to the user that the game started after he starts the game', () => {
     gameOfShells.find('[test="start-game"]').last().simulate('click')
 
-    expect(gameOfShells.state().message).toBe(settings.startMessage)
+    expect(gameOfShells.state().message).toBe(model.startMessage)
   })
 
   it('should hide the ball inside a shell', () => {

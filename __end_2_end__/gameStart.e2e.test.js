@@ -1,3 +1,4 @@
+import model from '../src/config/model'
 import settings from '../src/config/settings'
 
 class MinimumGamePlayTest {
@@ -41,7 +42,7 @@ describe('Game play', () => {
   })
 
   it('As a user I would like to be notified that the game started', async () => {
-    expect(await game.getNotificationMessage()).toBe(settings.startMessage)
+    expect(await game.getNotificationMessage()).toBe(model.startMessage)
   })
 
   it('As a user I would like to see the shells shuffling', async () => {

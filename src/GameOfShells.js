@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from './components/Button'
 import ShellsContainer from './components/ShellsContainer'
+import model from './config/model'
 import settings from './config/settings'
 import './assets/css/app.css'
 
@@ -15,7 +16,7 @@ class GameOfShells extends React.Component {
   placeBall = () => {
     this.setState({
       isUserInteractionDisabled: true,
-      message: settings.startMessage,
+      message: model.startMessage,
       isBallPlaced: true,
     })
   }

@@ -1,4 +1,4 @@
-import { durations, messages } from './settings.json'
+import { durations } from './settings.json'
 
 export default {
   extendTestDuration(duration) {
@@ -18,8 +18,5 @@ export default {
   },
   get shufflingAndBallPlacingDuration() {
     return durations.shuffling + durations.ballPlacing
-  },
-  get startMessage() {
-    return messages.start
   }
 }
