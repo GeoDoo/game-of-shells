@@ -1,7 +1,7 @@
 import model from '../src/config/model'
 import settings from '../src/config/settings'
 
-class MinimumGamePlayTest {
+class GamePlayTest {
   constructor(page) {
     this.page = page
   }
@@ -37,7 +37,7 @@ class MinimumGamePlayTest {
 describe('Game play', () => {
   let game
   beforeAll(async () => {
-    game = new MinimumGamePlayTest(page)
+    game = new GamePlayTest(page)
     await page.goto('http://localhost:3000', {"waitUntil" : "networkidle0"})
   })
 
@@ -45,14 +45,14 @@ describe('Game play', () => {
     await game.start()
   })
 
-  it('As a user I would like to be notified that the game started', async () => {
+  it('As a user I would like to be notified that the game started by placing the ball underneath a shell', async () => {
     expect(await game.getNotificationMessage()).toBe(model.placingBallMessage)
-  })
-  
-  it('As a user I would like to see the shells shuffling', async () => {
     await game.hideBallInAShell()
     expect(await game.shouldShellContainBall()).toBe(true)
     await game.waitForShufflingToStart()
+  })
+  
+  it('As a user I would like to see the shells shuffling', async () => {
     expect(await game.getNotificationMessage()).toBe(model.shufflingMessage)
     await game.shuffleShells()
   }, settings.extendTestDuration(settings.shufflingAndBallPlacingDuration))
