@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Shell from './Shell'
 import shuffle from '../helpers/shuffle'
-import { shells } from '../config/data.json'
+import model from '../config/model'
 
 class ShellsContainer extends Component {
   state = {
@@ -20,9 +20,10 @@ class ShellsContainer extends Component {
 
   mapToOrder() {
     const { shellsOrder } = this.state
-    return shells.map((shell, index) => {
+    return model.shells.map((shell, index) => {
       return {
         id: shell.id,
+        // FIXME remove magic numbers
         position: {left: `${shellsOrder[index]*240}px`}
       }
     })
