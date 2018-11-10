@@ -14,6 +14,7 @@
     "placingBall": "placing ball...",
     "shuffling": "shuffling...",
     "chooseShell": "Please choose a shell",
-    "win": "You won! Congratulations"
+    "win": "You won! Congratulations",
+    "lose": "You lost! Better luck next time"
   }
 }

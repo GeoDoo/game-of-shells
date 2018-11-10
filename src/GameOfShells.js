@@ -58,11 +58,23 @@ class GameOfShells extends React.Component {
     const { isPickShellDisabled } = this.state
     return id === 'shell-2' && !isPickShellDisabled
   }
+  
+  lose = id => {
+    const { isPickShellDisabled } = this.state
+    return id !== 'shell-2' && !isPickShellDisabled
+  }
 
   pickShell = e => {
     if (this.win(e.target.parentNode.id)) {
       this.setState({
         message: model.winMessage,
+      })
+      return
+    }
+
+    if (this.lose(e.target.parentNode.id)) {
+      this.setState({
+        message: model.loseMessage,
       })
     }
   }

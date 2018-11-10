@@ -33,12 +33,16 @@ class GamePlayTest {
     await this.page.waitFor(settings.shufflingDuration)
   }
   
-  async pickAShell() {
+  async pickTheRightShell() {
     await this.page.click('[test=shell-2]')
+  }
+
+  async pickAWrongShell() {
+    await this.page.click('[test=shell-1]')
   }
 }
 
-describe('Game play', () => {
+describe('Game play and win', () => {
   let game
   beforeAll(async () => {
     game = new GamePlayTest(page)
@@ -64,12 +68,48 @@ describe('Game play', () => {
   it('As a user I would like to be notified that I can choose a shell', async () => {
     expect(await game.getNotificationMessage()).toBe(model.chooseShellMessage)
   })
-  
+
   it('As a user I would like to be able to choose a shell', async () => {
-    await game.pickAShell()
+    await game.pickTheRightShell()
   })
   
   it('As a user I would like to be notified that I won if I choose the right shell', async () => {
     expect(await game.getNotificationMessage()).toBe(model.winMessage)
+  })
+})
+
+describe('Game play and lose', () => {
+  let game
+  beforeAll(async () => {
+    game = new GamePlayTest(page)
+    await page.goto('http://localhost:3000', {"waitUntil" : "networkidle0"})
+  })
+
+  it('As a user I would like to be able to start the game', async () => {
+    await game.start()
+  })
+
+  it('As a user I would like to be notified that the game started by placing the ball underneath a shell', async () => {
+    expect(await game.getNotificationMessage()).toBe(model.placingBallMessage)
+    await game.hideBallInAShell()
+    expect(await game.shouldShellContainBall()).toBe(true)
+    await game.waitForShufflingToStart()
+  })
+  
+  it('As a user I would like to see the shells shuffling', async () => {
+    expect(await game.getNotificationMessage()).toBe(model.shufflingMessage)
+    await game.shuffleShells()
+  }, settings.extendTestDuration(settings.shufflingAndBallPlacingDuration))
+
+  it('As a user I would like to be notified that I can choose a shell', async () => {
+    expect(await game.getNotificationMessage()).toBe(model.chooseShellMessage)
+  })
+
+  it('As a user I would like to be able to choose a shell', async () => {
+    await game.pickAWrongShell()
+  })
+  
+  it('As a user I would like to be notified that I lost if I choose the wrong shells', async () => {
+    expect(await game.getNotificationMessage()).toBe(model.loseMessage)
   })
 })

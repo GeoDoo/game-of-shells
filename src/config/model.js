@@ -15,5 +15,8 @@ export default {
   },
   get winMessage() {
     return messages.win
+  },
+  get loseMessage() {
+    return messages.lose
   }
 }
