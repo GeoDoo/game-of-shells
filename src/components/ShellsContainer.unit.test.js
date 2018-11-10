@@ -27,4 +27,14 @@ describe('ShellsContainer', () => {
     const anotherState = shellsContainer.state().shellsOrder
     expect(anotherState).not.toEqual(newState)
   })
+
+  it('should enable shells to be chosen', () => {
+    const onShellClick = jest.fn()
+    shellsContainer.setProps({
+      pickShell: onShellClick
+    })
+
+    shellsContainer.find('[test="shell-1"]').simulate('click')
+    expect(onShellClick).toHaveBeenCalled()
+  })
 })

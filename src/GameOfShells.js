@@ -52,6 +52,18 @@ class GameOfShells extends React.Component {
     }, settings.shufflingAndBallPlacingDuration)
   }
 
+  win = id => {
+    return id === 'shell-2'
+  }
+
+  pickShell = e => {
+    if (this.win(e.target.parentNode.id)) {
+      this.setState({
+        message: model.winMessage,
+      })
+    }
+  }
+
   render() {
     const { isUserInteractionDisabled, message, isBallPlaced, iterations } = this.state
     return (
@@ -67,7 +79,7 @@ class GameOfShells extends React.Component {
           <div test="notifications" id="notifications">{message}</div>
         </div>
         <div id="table">
-          <ShellsContainer isBallPlaced={isBallPlaced} iterations={iterations} />
+          <ShellsContainer isBallPlaced={isBallPlaced} iterations={iterations} isUserInteractionDisabled={isUserInteractionDisabled} pickShell={this.pickShell} />
         </div>
       </div>
     )

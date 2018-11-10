@@ -13,6 +13,7 @@
   "messages": {
     "placingBall": "placing ball...",
     "shuffling": "shuffling...",
-    "chooseShell": "Please choose a shell"
+    "chooseShell": "Please choose a shell",
+    "win": "You won! Congratulations"
   }
 }

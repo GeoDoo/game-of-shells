@@ -32,6 +32,10 @@ class GamePlayTest {
   async shuffleShells() {
     await this.page.waitFor(settings.shufflingDuration)
   }
+  
+  async pickAShell() {
+    await this.page.click('[test=shell-2]')
+  }
 }
 
 describe('Game play', () => {
@@ -59,5 +63,13 @@ describe('Game play', () => {
 
   it('As a user I would like to be notified that I can choose a shell', async () => {
     expect(await game.getNotificationMessage()).toBe(model.chooseShellMessage)
+  })
+  
+  it('As a user I would like to be able to choose a shell', async () => {
+    await game.pickAShell()
+  })
+  
+  it('As a user I would like to be notified that I won if I choose the right shell', async () => {
+    expect(await game.getNotificationMessage()).toBe(model.winMessage)
   })
 })

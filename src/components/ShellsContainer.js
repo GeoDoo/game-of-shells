@@ -30,7 +30,7 @@ class ShellsContainer extends Component {
   }
 
   render() {
-    const { isBallPlaced } = this.props
+    const { isBallPlaced, pickShell } = this.props
     return (
       <div id="shells-container">
         {this.mapToOrder().map(
@@ -41,9 +41,10 @@ class ShellsContainer extends Component {
                 <Shell
                   key={shell.id}
                   test={shell.id}
+                  id={shell.id}
                   hasBall
                   position={shell.position}
-                  onClick={() => {}}
+                  onClick={pickShell}
                 />
               ) 
             } else {
@@ -51,8 +52,9 @@ class ShellsContainer extends Component {
                 <Shell
                   key={shell.id}
                   test={shell.id}
+                  id={shell.id}
                   position={shell.position}
-                  onClick={() => {}}
+                  onClick={pickShell}
                 />
               )
             }

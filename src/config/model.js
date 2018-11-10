@@ -12,5 +12,8 @@ export default {
   },
   get chooseShellMessage() {
     return messages.chooseShell
+  },
+  get winMessage() {
+    return messages.win
   }
 }

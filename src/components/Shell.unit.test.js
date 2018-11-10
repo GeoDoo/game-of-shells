@@ -20,7 +20,7 @@ describe('Shell', () => {
   })
 
   it('should handle clicks', () => {
-    shell.find('img').first().simulate('click')
+    shell.simulate('click')
     expect(onClickSpy).toHaveBeenCalled()
   })
   

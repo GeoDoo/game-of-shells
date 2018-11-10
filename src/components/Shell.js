@@ -4,15 +4,15 @@ import ballImg from '../assets/images/ball.png'
 
 const Shell = ({
   test,
+  id,
   hasBall,
   position,
   onClick
 }) => (
-  <div test={test} className="shell" style={position}>
+  <div test={test} onClick={onClick} id={id} className="shell" style={position}>
     <img 
       className="shell-image"
       src={shellImg}
-      onClick={onClick}
       alt="Shell"
       width={240}
     />
