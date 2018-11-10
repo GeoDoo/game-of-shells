@@ -7,7 +7,8 @@ import './assets/css/app.css'
 
 class GameOfShells extends React.Component {
   state = {
-    isUserInteractionDisabled: false,
+    isStartGameDisabled: false,
+    isPickShellDisabled: true,
     message: '',
     isBallPlaced: false,
     iterations: 0,
@@ -15,7 +16,7 @@ class GameOfShells extends React.Component {
 
   placeBall = () => {
     this.setState({
-      isUserInteractionDisabled: true,
+      isStartGameDisabled: true,
       message: model.placingBallMessage,
       isBallPlaced: true,
     })
@@ -35,7 +36,8 @@ class GameOfShells extends React.Component {
 
   enableUserInteraction = () => {
       this.setState({
-        isUserInteractionDisabled: false,
+        isStartGameDisabled: false,
+        isPickShellDisabled: false,
         message: model.chooseShellMessage,
       })
   }
@@ -53,7 +55,8 @@ class GameOfShells extends React.Component {
   }
 
   win = id => {
-    return id === 'shell-2'
+    const { isPickShellDisabled } = this.state
+    return id === 'shell-2' && !isPickShellDisabled
   }
 
   pickShell = e => {
@@ -65,7 +68,7 @@ class GameOfShells extends React.Component {
   }
 
   render() {
-    const { isUserInteractionDisabled, message, isBallPlaced, iterations } = this.state
+    const { isStartGameDisabled, message, isBallPlaced, iterations } = this.state
     return (
       <div className="container">
         <div id="board">
@@ -74,12 +77,12 @@ class GameOfShells extends React.Component {
             test="start-game"
             text="Start game"
             onClick={this.play}
-            disabled={isUserInteractionDisabled}
+            disabled={isStartGameDisabled}
           />
           <div test="notifications" id="notifications">{message}</div>
         </div>
         <div id="table">
-          <ShellsContainer isBallPlaced={isBallPlaced} iterations={iterations} isUserInteractionDisabled={isUserInteractionDisabled} pickShell={this.pickShell} />
+          <ShellsContainer isBallPlaced={isBallPlaced} iterations={iterations} isStartGameDisabled={isStartGameDisabled} pickShell={this.pickShell} />
         </div>
       </div>
     )

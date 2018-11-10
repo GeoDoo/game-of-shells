@@ -23,12 +23,14 @@ describe('GameOfShells', () => {
     expect(gameOfShells.find('[test="ball"]').last().length).toBe(1)
   })
 
-  it('should prevent user interaction during the shuffle of shells', done => {
+  it('should prevent user from messing around with the controls of the game like starting a game or picking a shell during the shuffle of shells', done => {
+    expect(gameOfShells.state().isPickShellDisabled).toBe(true)
     gameOfShells.find('[test="start-game"]').last().simulate('click')
     
-    expect(gameOfShells.state().isUserInteractionDisabled).toBe(true)
+    expect(gameOfShells.state().isStartGameDisabled).toBe(true)
     setTimeout(() => {
-      expect(gameOfShells.state().isUserInteractionDisabled).toBe(false)
+      expect(gameOfShells.state().isStartGameDisabled).toBe(false)
+      expect(gameOfShells.state().isPickShellDisabled).toBe(false)
       done()
     }, settings.shufflingAndBallPlacingDuration)
   }, settings.extendTestDuration(settings.shufflingAndBallPlacingDuration))
